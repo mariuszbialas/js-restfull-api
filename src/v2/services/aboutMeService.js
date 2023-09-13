@@ -6,6 +6,11 @@ const getDescription = () => {
   return description;
 };
 
+const updateDescription = (changes) => {
+  const updatedDesc = AboutMe.updateDescription(changes);
+  return updatedDesc;
+};
+
 // knowledge
 const getKnowledge = () => {
   const knowledge = AboutMe.getKnowledge();
@@ -36,11 +41,27 @@ const getDownload = () => {
   return download;
 };
 
+// projects
+const getProjects = () => {
+  const projects = AboutMe.getProjects();
+  return projects;
+};
+const createNewProject = (newProject) => {
+  const projectToInsert = {
+    ...newProject,
+    createdAt: new Date.toLocaleString('de-DE'),
+    updatedAt: new Date.toLocaleString('de-DE'),
+  };
+  const createdProject = AboutMe.createNewProject(projectToInsert);
+  return createdProject;
+};
+
 module.exports = {
-  getDescription,
+  getDescription, updateDescription,
   getKnowledge,
   getEducation,
   getExperience,
   getBlog,
   getDownload,
+  getProjects, createNewProject,
 };
